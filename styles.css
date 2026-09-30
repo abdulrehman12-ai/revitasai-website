@@ -1,0 +1,56 @@
+:root { --ink:#0a1f3c; --blue:#145cc6; --sky:#eaf2ff; --line:#dce5f1; --muted:#55657b; --paper:#fbfcff; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color:inherit; }
+.site-header, main > section, footer { max-width:1160px; margin:0 auto; }
+.site-header { height:78px; display:flex; align-items:center; justify-content:space-between; padding:0 28px; }
+.brand { font-size:1.15rem; font-weight:800; text-decoration:none; letter-spacing:-.04em; }
+.brand span { color:var(--blue); }
+.header-cta { color:var(--blue); font-size:.93rem; font-weight:700; text-underline-offset:4px; }
+.hero { padding:102px 28px 82px; max-width:850px; margin-left:max(0px, calc((100vw - 1160px)/2)); }
+.eyebrow { margin:0 0 16px; color:var(--blue); font-size:.73rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+h1,h2,h3,p { margin-top:0; }
+h1 { max-width:780px; margin-bottom:22px; font-size:clamp(3.2rem,7vw,6.4rem); line-height:.98; letter-spacing:-.07em; }
+h2 { max-width:720px; font-size:clamp(2rem,4vw,3.5rem); line-height:1.08; letter-spacing:-.055em; }
+h3 { font-size:1.28rem; letter-spacing:-.03em; }
+.lead { max-width:650px; color:var(--muted); font-size:1.2rem; }
+.actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
+.button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 20px; border-radius:7px; font-weight:800; text-decoration:none; }
+.primary { background:var(--blue); color:#fff; }
+.secondary { border:1px solid #b8c7da; }
+.fine-print { margin-top:20px; color:var(--muted); font-size:.8rem; }
+.proof { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); }
+.proof article { min-height:150px; padding:34px 28px; background:#fff; }
+.proof strong { display:block; font-size:1.5rem; letter-spacing:-.04em; }
+.proof span { color:var(--muted); }
+.section { padding:110px 28px; }
+.split { display:grid; grid-template-columns:1.1fr .9fr; gap:90px; }
+.copy { color:var(--muted); font-size:1.12rem; }
+.cards-section { border-top:1px solid var(--line); }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:45px; }
+.card { min-height:250px; padding:28px; border:1px solid var(--line); background:#fff; border-radius:12px; }
+.number { margin-bottom:42px; color:var(--blue); font-size:.75rem; font-weight:800; }
+.card p { color:var(--muted); }
+.pricing { display:grid; grid-template-columns:1fr 390px; gap:70px; align-items:center; padding:100px 28px; background:var(--ink); color:#fff; }
+.pricing > div { padding-left:0; }
+.pricing .eyebrow { color:#8ebaff; }
+.pricing > div > p:last-child { color:#c5d2e5; max-width:500px; }
+.price-card { padding:32px; border-radius:13px; background:#fff; color:var(--ink); }
+.plan { margin-bottom:7px; font-weight:800; }
+.price { margin-bottom:0; font-size:4.2rem; font-weight:800; letter-spacing:-.07em; line-height:1; }
+.price span,.price small { font-size:1.1rem; letter-spacing:0; vertical-align:middle; }
+.price small { color:var(--muted); font-weight:600; }
+.seat-note { margin-top:8px; color:var(--muted); font-size:.9rem; }
+ul { padding-left:20px; margin:26px 0; }
+li { margin:9px 0; }
+.full { width:100%; }
+.notice { margin:70px auto; padding:36px 42px; border:1px solid #f0c77a; border-radius:12px; background:#fff9ed; }
+.notice h2 { margin-bottom:10px; font-size:1.4rem; }
+.notice p { margin-bottom:0; color:#625031; }
+.closing { padding:95px 28px 120px; text-align:center; }
+.closing h2 { margin:0 auto 28px; }
+footer { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:30px 28px; border-top:1px solid var(--line); color:var(--muted); font-size:.86rem; }
+footer p { margin:0; }
+footer a:last-child { color:var(--blue); }
+@media (max-width:760px) { .site-header { padding:0 20px; } .header-cta { font-size:.8rem; } .hero { padding:70px 20px 60px; } .proof,.cards,.split,.pricing { grid-template-columns:1fr; } .proof article { min-height:auto; } .section,.pricing { padding:70px 20px; } .split { gap:20px; } .pricing { gap:36px; } .notice { margin:35px 20px; padding:28px 24px; } footer { flex-direction:column; align-items:flex-start; padding:28px 20px; } }
