@@ -1,5 +1,6 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+const FOUNDING_PILOT_PLAN = "founding-pilot";
 const apiBase = (document.documentElement.getAttribute("data-api-base") || "").trim();
 const quotePanel = document.getElementById("quote-panel");
 const statusNode = document.getElementById("checkout-status");
@@ -24,13 +25,18 @@ async function loadQuote() {
     return;
   }
   try {
-    const response = await fetch(new URL("/api/v1/saas/billing/quote", apiBase).toString(), {
+    const quoteUrl = new URL("/api/v1/saas/billing/quote", apiBase);
+    quoteUrl.searchParams.set("plan_code", FOUNDING_PILOT_PLAN);
+    const response = await fetch(quoteUrl.toString(), {
       headers: { Accept: "application/json" },
     });
     if (!response.ok) {
       throw new Error("quote");
     }
     quote = await response.json();
+    if (!quote || quote.plan !== FOUNDING_PILOT_PLAN) {
+      throw new Error("quote");
+    }
     quotePanel.hidden = false;
     quotePanel.innerHTML =
       "<p><strong>$" +
@@ -54,6 +60,7 @@ async function loadQuote() {
       "</p><p>" +
       quote.legal_status +
       "</p>";
+    startButton.disabled = false;
     setStatus("Review the dates and terms, then continue to Stripe Checkout. Confirming checkout collects a payment method and charges $0 today.");
   } catch (_error) {
     setStatus("The plan quote could not be loaded. Checkout is paused.");
@@ -72,7 +79,8 @@ startButton.addEventListener("click", async function startCheckout() {
   try {
     const response = await fetch(new URL("/api/v1/saas/billing/checkout", apiBase).toString(), {
       method: "POST",
-      headers: { Accept: "application/json" },
+      headers: { Accept: "application/json", "Content-Type": "application/json" },
+      body: JSON.stringify({ plan_code: FOUNDING_PILOT_PLAN }),
     });
     const payload = await response.json().catch(function empty() {
       return {};
