@@ -45,6 +45,10 @@ h3 { font-size:1.28rem; letter-spacing:-.03em; }
 ul { padding-left:20px; margin:26px 0; }
 li { margin:9px 0; }
 .full { width:100%; }
+button.button { border:0; cursor:pointer; font:inherit; }
+.quote-panel { margin:16px 0; color:var(--muted); font-size:.9rem; }
+.quote-status { min-height:3em; color:var(--muted); font-size:.85rem; }
+.legal-links { margin-top:12px; font-size:.8rem; }
 .notice { margin:70px auto; padding:36px 42px; border:1px solid #f0c77a; border-radius:12px; background:#fff9ed; }
 .notice h2 { margin-bottom:10px; font-size:1.4rem; }
 .notice p { margin-bottom:0; color:#625031; }
